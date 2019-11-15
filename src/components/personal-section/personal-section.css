@@ -1,5 +1,8 @@
 .btn {
     padding: 10px;
-    margin-left:100px;
+    margin:10px;
     border-radius: 25px;
+    width: 100px;
+    height:100px;
+    border: solid 1px;
   }

@@ -23,6 +23,9 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
+  interface AppSections {
+    'content': string;
+  }
 }
 
 declare global {
@@ -57,12 +60,19 @@ declare global {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLAppSectionsElement extends Components.AppSections, HTMLStencilElement {}
+  var HTMLAppSectionsElement: {
+    prototype: HTMLAppSectionsElement;
+    new (): HTMLAppSectionsElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-personal-links': HTMLAppPersonalLinksElement;
     'app-personal-section': HTMLAppPersonalSectionElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
+    'app-sections': HTMLAppSectionsElement;
   }
 }
 
@@ -78,6 +88,9 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot {}
+  interface AppSections {
+    'content'?: string;
+  }
 
   interface IntrinsicElements {
     'app-home': AppHome;
@@ -85,6 +98,7 @@ declare namespace LocalJSX {
     'app-personal-section': AppPersonalSection;
     'app-profile': AppProfile;
     'app-root': AppRoot;
+    'app-sections': AppSections;
   }
 }
 
@@ -99,6 +113,7 @@ declare module "@stencil/core" {
       'app-personal-section': LocalJSX.AppPersonalSection & JSXBase.HTMLAttributes<HTMLAppPersonalSectionElement>;
       'app-profile': LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'app-sections': LocalJSX.AppSections & JSXBase.HTMLAttributes<HTMLAppSectionsElement>;
     }
   }
 }
