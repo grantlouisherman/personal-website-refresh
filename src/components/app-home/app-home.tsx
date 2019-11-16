@@ -24,9 +24,8 @@ export class AppHome {
         <div class='row'>
           {this.renderPersonalSectionButtons()}
         </div>
-        <app-sections content={"Entry - Mid level software developer and former technical management consultant with strong financial services and government contracting background. " +
-        "Experienced in JavaScript, Node.js, React, React-Redux, and GraphQl. Professional with a Bachelor's degree focused in Political Science and Government from Fordham University.\n" +
-        "\n" + "I currently work at American Express on the Benefits Dashboard team as a software developer."}></app-sections>
+        <about-section></about-section>
+        <open-source></open-source>
       </slot>
     );
   }

@@ -1,3 +1,10 @@
-:host {
+div {
   word-wrap: break-word;
+  text-overflow: wrap;
+  text-align: center;
+  padding: 1%;
+}
+
+li {
+  margin: 10px;
 }

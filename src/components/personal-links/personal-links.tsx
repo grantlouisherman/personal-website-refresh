@@ -52,7 +52,7 @@ export class PersonalLinks {
         <label>
           {contentForCard.key}
           <a href={contentForCard.link}>
-            <img id="img" width="100" height="100" src={contentForCard.icon} /> 
+            <img id="img" width="150" height="150" src={contentForCard.icon} /> 
           </a>
           <hr />
         </label>         

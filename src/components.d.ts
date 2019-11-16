@@ -10,8 +10,12 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   MatchResults,
 } from '@stencil/router';
+import {
+  OpenSourceLink,
+} from './components/sections/open-source';
 
 export namespace Components {
+  interface AboutSection {}
   interface AppHome {}
   interface AppPersonalLinks {
     'contentKey': string;
@@ -23,13 +27,21 @@ export namespace Components {
     'match': MatchResults;
   }
   interface AppRoot {}
-  interface AppSections {
-    'content': string;
+  interface OpenSource {}
+  interface OpenSourceProject {
+    'openSourceContributions': Array<OpenSourceLink>;
+    'projectName': string;
   }
 }
 
 declare global {
 
+
+  interface HTMLAboutSectionElement extends Components.AboutSection, HTMLStencilElement {}
+  var HTMLAboutSectionElement: {
+    prototype: HTMLAboutSectionElement;
+    new (): HTMLAboutSectionElement;
+  };
 
   interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
   var HTMLAppHomeElement: {
@@ -61,22 +73,31 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
-  interface HTMLAppSectionsElement extends Components.AppSections, HTMLStencilElement {}
-  var HTMLAppSectionsElement: {
-    prototype: HTMLAppSectionsElement;
-    new (): HTMLAppSectionsElement;
+  interface HTMLOpenSourceElement extends Components.OpenSource, HTMLStencilElement {}
+  var HTMLOpenSourceElement: {
+    prototype: HTMLOpenSourceElement;
+    new (): HTMLOpenSourceElement;
+  };
+
+  interface HTMLOpenSourceProjectElement extends Components.OpenSourceProject, HTMLStencilElement {}
+  var HTMLOpenSourceProjectElement: {
+    prototype: HTMLOpenSourceProjectElement;
+    new (): HTMLOpenSourceProjectElement;
   };
   interface HTMLElementTagNameMap {
+    'about-section': HTMLAboutSectionElement;
     'app-home': HTMLAppHomeElement;
     'app-personal-links': HTMLAppPersonalLinksElement;
     'app-personal-section': HTMLAppPersonalSectionElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
-    'app-sections': HTMLAppSectionsElement;
+    'open-source': HTMLOpenSourceElement;
+    'open-source-project': HTMLOpenSourceProjectElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface AboutSection {}
   interface AppHome {}
   interface AppPersonalLinks {
     'contentKey'?: string;
@@ -88,17 +109,21 @@ declare namespace LocalJSX {
     'match'?: MatchResults;
   }
   interface AppRoot {}
-  interface AppSections {
-    'content'?: string;
+  interface OpenSource {}
+  interface OpenSourceProject {
+    'openSourceContributions'?: Array<OpenSourceLink>;
+    'projectName'?: string;
   }
 
   interface IntrinsicElements {
+    'about-section': AboutSection;
     'app-home': AppHome;
     'app-personal-links': AppPersonalLinks;
     'app-personal-section': AppPersonalSection;
     'app-profile': AppProfile;
     'app-root': AppRoot;
-    'app-sections': AppSections;
+    'open-source': OpenSource;
+    'open-source-project': OpenSourceProject;
   }
 }
 
@@ -108,12 +133,14 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'about-section': LocalJSX.AboutSection & JSXBase.HTMLAttributes<HTMLAboutSectionElement>;
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-personal-links': LocalJSX.AppPersonalLinks & JSXBase.HTMLAttributes<HTMLAppPersonalLinksElement>;
       'app-personal-section': LocalJSX.AppPersonalSection & JSXBase.HTMLAttributes<HTMLAppPersonalSectionElement>;
       'app-profile': LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-      'app-sections': LocalJSX.AppSections & JSXBase.HTMLAttributes<HTMLAppSectionsElement>;
+      'open-source': LocalJSX.OpenSource & JSXBase.HTMLAttributes<HTMLOpenSourceElement>;
+      'open-source-project': LocalJSX.OpenSourceProject & JSXBase.HTMLAttributes<HTMLOpenSourceProjectElement>;
     }
   }
 }
