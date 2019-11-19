@@ -24,8 +24,6 @@ export class AppHome {
         <div class='row'>
           {this.renderPersonalSectionButtons()}
         </div>
-        <about-section></about-section>
-        <open-source></open-source>
       </slot>
     );
   }

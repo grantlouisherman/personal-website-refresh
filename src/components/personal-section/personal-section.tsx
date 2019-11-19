@@ -34,13 +34,16 @@ export class PersonalSection {
   render() {
     const resolveSection: SectionLink = this.getSectionData(this.sectionKey)
     return (
-      <a href={`#${resolveSection.sectionName}`} class="center">
-      <button class='btn'>
-          { resolveSection.buttonText }
-      </button>
-      </a>
-
+      <div>
+        <h1 id='open_modal' class='section_model_text'>{resolveSection.buttonText}</h1>
+        <div class="modal">
+          <div class="modal-content">
+            <span id="close-model" class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+          </div>
+        </div>
+      </div>
+      
     );
   }
-
 }
